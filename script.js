@@ -1,44 +1,16 @@
 window.addEventListener("load", function(){
-
-	function getColor(event){
-		var color = window.getComputedStyle(event.target, null).getPropertyValue("background-color");
-		return color 
-	}
-
-	function fillBox(event){
-		event.target.style.backgroundColor = color
-	}
-
-	function toCsv(event){
-		body = document.getElementsByClassName('row');
-
-		querystring = "";
-
-		for (var i = 0; i<body.length; i++){
-			if (body[i].style.backgroundColor == ""){
-				body[i].style.backgroundColor = "white"
-			}
-			
-			string = body[i].getAttribute("id")+"=" + body[i].style.backgroundColor+"&";
-			querystring +=string
-		}
-			
-		time = "time" + event.timeStamp
-		querystring += time
-
-		var xhr = new XMLHttpRequest();
-		xhr.open ("GET", "http://localhost:4567/moving?" + querystring);
-
-		xhr.send();
-	}
-
-	//this chunk of code draws color up into the mouse
+var color = ""
+//this chunk of code draws color up into the mouse
 	function colorPrimer(){
 		var pallete = document.getElementsByClassName("color");
-
 		for (var i = 0; i<pallete.length; i++) {
 			pallete[i].addEventListener("click", getColor);
+
 		}
+	}
+
+	function getColor(event){
+		color = window.getComputedStyle(event.target, null).getPropertyValue("background-color");
 	}
 
 	//this chunk of code adds color to the painting, when specific boxes are clicked
@@ -48,6 +20,29 @@ window.addEventListener("load", function(){
 			boxes[i].addEventListener("click", fillBox)
 		}
 	}
+
+	function fillBox(event){
+		event.target.style.backgroundColor = color
+	}
+
+	function toCsv(event){
+		body = document.getElementsByClassName('row');
+		querystring = "";
+		for (var i = 0; i<body.length; i++){
+			if (body[i].style.backgroundColor == ""){
+				body[i].style.backgroundColor = "white"
+			}
+			
+			string = body[i].getAttribute("id")+"=" + body[i].style.backgroundColor+"&";
+			querystring +=string
+		}	
+		time = "time=" + event.timeStamp
+		querystring += time
+		var xhr = new XMLHttpRequest();
+		xhr.open ("GET", "http://localhost:4567/moving?" + querystring);
+		xhr.send();
+	}
+
 
 	//this function provides the ability to operate to the save button, converts the current painting aperance to 
 	// a string to be sent to the Sinatra page,and sends the string.

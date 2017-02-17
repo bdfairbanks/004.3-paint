@@ -1,20 +1,2 @@
-row_1_box_1,white
-row_1_box_2,white
-row_1_box_3,white
-row_1_box_4,white
-row_2_box_1,white
-row_2_box_2,"rgb(204, 0, 0)"
-row_2_box_3,white
-row_2_box_4,white
-row_3_box_1,white
-row_3_box_2,white
-row_3_box_3,white
-row_3_box_4,white
-row_4_box_1,white
-row_4_box_2,white
-row_4_box_3,white
-row_4_box_4,white
-129478.585,
-row_1_box_1,row_1_box_2,row_1_box_3,row_1_box_4
-white,blue,red,yellow, blue...
-white,blue,red,yellow
+row_1_box_1,row_1_box_2,row_1_box_3,,row_1_box_4,row_2_box_1,row_2_box_2,row_2_box_3,row_2_box_4,row_3_box_1,row_3_box_2,row_3_box_3,row_3_box_4,row_4_box_1,row_4_box_2,row_4_box_3,row_4_box_4,timestamp
+white,white,white,white,white,"rgb(255, 236, 0)",white,white,white,white,white,white,white,"rgb(255, 236, 0)",white,"rgb(255, 236, 0)",530674.435
